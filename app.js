@@ -18,7 +18,19 @@ var campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
 var url = process.env.DATABASEURL;
-mongoose.connect("mongodb+srv://harshita:india@cluster0.7o4at.mongodb.net/indiecamp?retryWrites=true&w=majority",{ useNewUrlParser: true ,  useUnifiedTopology: true, useFindAndModify: false});
+const dbConnect = async () => {
+try{
+    await mongoose.connect("mongodb+srv://harshita:india@cluster0.7o4at.mongodb.net/indiecamp?retryWrites=true&w=majority",
+    { useNewUrlParser: true ,  
+      useUnifiedTopology: true, 
+      useFindAndModify: false
+    });
+} catch (err) {
+    console.log('Error at dbConnect ::', err)
+    throw err;
+}
+}
+
 // "mongodb+srv://harshita:india@cluster0.7o4at.mongodb.net/indiecamp?retryWrites=true&w=majority"
 // mongoose.connect("mongodb://localhost/yelpcamp",{ useNewUrlParser: true ,  useUnifiedTopology: true, useFindAndModify: false});
 
