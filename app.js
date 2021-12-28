@@ -17,20 +17,9 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-var url = process.env.DATABASEURL;
-const dbConnect = async () => {
-try{
-    await mongoose.connect("mongodb+srv://harshita:india@cluster0.7o4at.mongodb.net/indiecamp?retryWrites=true&w=majority",
-    { useNewUrlParser: true ,  
-      useUnifiedTopology: true, 
-      useFindAndModify: false
-    });
-} catch (err) {
-    console.log('Error at dbConnect ::', err)
-    throw err;
-}
-}
-
+var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp";
+mongoose.connect(url);
+// mongodb+srv://harshita:<harshita22>@cluster0.7o4at.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 // "mongodb+srv://harshita:india@cluster0.7o4at.mongodb.net/indiecamp?retryWrites=true&w=majority"
 // mongoose.connect("mongodb://localhost/yelpcamp",{ useNewUrlParser: true ,  useUnifiedTopology: true, useFindAndModify: false});
 
