@@ -17,7 +17,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp";
+var url = "mongodb://localhost/indiecamp";
 getConnection = async () => {
 try {
     await mongoose.connect(url, {useNewUrlParser:true});
@@ -66,5 +66,5 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 
 
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Yelp Camp Server has started!!");
+    console.log("Indie Camp Server has started!!");
 });
