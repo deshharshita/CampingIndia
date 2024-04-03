@@ -17,7 +17,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
-var url = "mongodb://localhost/indiecamp";
+// var url = "mongodb://localhost/indiecamp";
+var url = "mongodb+srv://harshita22:dbyelpcamp@atlascluster.7vuakdu.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
 getConnection = async () => {
 try {
     await mongoose.connect(url, {useNewUrlParser:true});
@@ -66,5 +67,5 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 
 
 app.listen(process.env.PORT || 3000, function(){
-    console.log("Indie Camp Server has started!!");
+    console.log("CampingIndia Server has started!!");
 });
